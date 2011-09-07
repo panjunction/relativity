@@ -46,8 +46,5 @@ Then you can search via the class method `search_by_key`.
 
 == IMPORTANT NOTES
 
-This is not a guarantee for logging changes and revision control.
-Actual revision control can be created, but it's up to you to create the logic.
-Since it is located in a separate NoSQL database, there is no guarantee
-for data consistency. This is just useful gem to search because
-other revision gems can't search the actual changes.
+This is a search key-value store, and is in no way a datastore.
+It is purely for search records (it modifies some values for easier search.
