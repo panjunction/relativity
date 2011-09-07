@@ -34,7 +34,7 @@ irb:
 
 == Usage
 
-In your ActiveRecord model, set the relativity_search_records method:
+In your ActiveRecord model, set the search_keys method:
 
   class Item < ActiveRecord:Base
     search_keys do
