@@ -1,0 +1,53 @@
+= relativity v0.1a
+
+relativity is search engine for ruby_on_rails applications.
+It uses a NoSQL Key-Value store to create searchable records.
+It is a modified copy of the data stored in your main database (MySQL, etc).
+It is read-only (not for storage and editing).
+
+== Example
+
+item.rb
+  class Item << ActiveRecord:Base
+    relativity_search_records do
+      string :name
+    end
+  end
+
+irb:
+  Item.create!({:name => "Test Item", :properties => {:height => "6 feet", :width => "24 inches"}})
+  Item.search_by_key(:height, "6 feet") # [ Item(1) ]
+  Item.search_by_key(:properties,  {:height => "6 feet", :width => "24 inches"}) # [ Item(1) ]
+
+== Requirements
+
+  ruby >= 1.9.2
+  rails >= 3.x
+  MongoDB
+
+== Installation
+
+1) Put it in your Gemfile and run `bundle install`
+   OR `gem install relativity`
+
+2) rails generate relativity:install
+
+== Usage
+
+In your ActiveRecord model, set the relativity_search_records method:
+
+  class Item < ActiveRecord:Base
+    relativity_search_records do
+      string :name
+    end
+  end
+
+Then you can search via the class method `search_by_key`.
+
+== IMPORTANT NOTES
+
+This is not a guarantee for logging changes and revision control.
+Actual revision control can be created, but it's up to you to create the logic.
+Since it is located in a separate NoSQL database, there is no guarantee
+for data consistency. This is just useful gem to search because
+other revision gems can't search the actual changes.
