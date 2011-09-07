@@ -37,7 +37,7 @@ irb:
 In your ActiveRecord model, set the relativity_search_records method:
 
   class Item < ActiveRecord:Base
-    relativity_search_records do
+    search_keys do
       string :name
     end
   end
